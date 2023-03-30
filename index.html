@@ -18,9 +18,25 @@
       crossorigin="anonymous"
     ></script>
     <script src="main.js" defer></script>
-    <title>Document</title>
+    <title>Joke</title>
 </head>
 <body>
+    <div class="d-flex justify-content-center" id="buttonDiv">
+        <button class='btn btn-primary' id='genNew'>Generate new Joke!</button>
+    </div>
+    <div class="d-flex justify-content-center" id="jokes">
+        <p id="joke"></p>
+    </div>
+    <div class="d-flex justify-content-center" id="likeDislike">
+        <button class='btn btn-primary' id='like'>Like</button>
+        <button class='btn btn-primary' id='dislike'>Dislike</button>
+    </div>
+    <div id="print" class="d-flex justify-content-center" style="padding: 1em;">
+        <button class='btn btn-primary' id='printLike'>Print liked jokes</button>
+        <button class='btn btn-primary' id='printDislike'>Print disliked jokes</button>
+        <p id="likedJokes"></p>
+        <p id="dislikedJokes"></p>
+    </div>
     
 </body>
 </html>
