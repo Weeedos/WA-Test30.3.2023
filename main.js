@@ -44,6 +44,7 @@ $(document).ready(function () {
                     currentJoke = new Joke(data.joke, undefined, undefined);
                 }
 
+                console.log(currentJoke);
                 $("#genNew").hide(0).fadeOut(1700);
                 $("#genNew").hide(0).fadeIn(1700);
             },
@@ -54,16 +55,20 @@ $(document).ready(function () {
     });
 });
 
-let likedJokes = [];
-let dislikedJokes = [];
+const likedJokes = [];
+const dislikedJokes = [];
 
 function addLikedJoke() {
     likedJokes.push(currentJoke);
     console.log(currentJoke);
+    $("#like").hide(0).fadeOut(1700);
+    $("#like").hide(0).fadeIn(1700);
 }
 
 function addDislikedJoke() {
     likedJokes.push(currentJoke);
+    $("#dislike").hide(0).fadeOut(1700);
+    $("#dislike").hide(0).fadeIn(1700);
 }
 
 likeButton.addEventListener('click', addLikedJoke);
@@ -71,6 +76,11 @@ dislikeButton.addEventListener('click', addDislikedJoke);
 
 function printLikedJokesFunction() {
     $("#likedJokes").html();
+    for (let i = 0; i < likedJokes; i++) {
+        console.log(likedJokes[i].Joke());
+        console.log(likedJokes[i].Setup());
+        console.log(likedJokes[i].Delivery());
+    }
     let allJokes = "";
     for (let i = 0; i < likedJokes; i++) {
         if (likedJokes[i].joke == undefined) {
@@ -81,12 +91,14 @@ function printLikedJokesFunction() {
     }
 
     $("#likedJokes").html(allJokes);
+    $("#printLike").hide(0).fadeOut(1700);
+    $("#printLike").hide(0).fadeIn(1700);
 }
 
 printLikedJokes.addEventListener('click', printLikedJokesFunction);
 
 function printDislikedJokesFunction() {
-    $("#likedJokes").html();
+    $("#dislikedJokes").html();
     let allJokes = "";
     for (let i = 0; i < dislikedJokes; i++) {
         if (dislikedJokes[i].joke == undefined) {
@@ -96,10 +108,9 @@ function printDislikedJokesFunction() {
         }
     }
 
-    $("#likedJokes").html(allJokes);
+    $("#dislikedJokes").html(allJokes);
+    $("#printDislike").hide(0).fadeOut(1700);
+    $("#printDislike").hide(0).fadeIn(1700);
 }
 
 printDislikedJokes.addEventListener('click', printDislikedJokesFunction);
-
-
-
